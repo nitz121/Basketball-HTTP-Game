@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resource Schemas - Basketball League</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-title">
+      <h1>Resource Schemas</h1>
+      <p class="subtitle">Server-rendered page (EJS)</p>
+    </div>
+    <nav class="topbar-nav">
+      <a href="/">Back to Game</a>
+    </nav>
+  </header>
+
+  <main class="schemas-container">
+    <% schemas.forEach(function(schema) { %>
+      <section class="schema-card">
+        <h2><%= schema.name %></h2>
+        <p class="schema-description"><%= schema.description %></p>
+        <table class="schema-table">
+          <thead>
+            <tr>
+              <th>Field</th>
+              <th>Data Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% schema.fields.forEach(function(field) { %>
+              <tr>
+                <td><code><%= field.name %></code></td>
+                <td><%= field.type %></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </section>
+    <% }) %>
+  </main>
+</body>
+</html>
